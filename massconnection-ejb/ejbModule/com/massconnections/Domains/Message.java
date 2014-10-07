@@ -1,0 +1,77 @@
+package com.massconnections.Domains;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+@Entity
+public class Message implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1113415222023133104L;
+	private int id;
+	private String subject;
+	private Date date;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	private String content;
+	
+	@ManyToOne
+	@JoinColumn(name="FK_senderId")
+	private User sender;
+	
+	@ManyToOne
+	@JoinColumn(name="FK_recieverId")
+	private User reciever;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getSubject() {
+		return subject;
+	}
+	public void setSubject(String subject) {
+		this.subject = subject;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public User getSender() {
+		return sender;
+	}
+	public void setSender(User sender) {
+		this.sender = sender;
+	}
+	public User getRecever() {
+		return reciever;
+	}
+	public void setRecever(User recever) {
+		this.reciever = recever;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	
+}
