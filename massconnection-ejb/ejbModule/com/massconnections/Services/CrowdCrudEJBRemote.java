@@ -8,10 +8,10 @@ import com.massconnections.Domains.Crowd;
 
 
 @Remote
-public interface UserCrudEJBRemote {
+public interface CrowdCrudEJBRemote {
 	
-	public void addUser(Crowd p);
-	public List<Crowd> getUsers();
+	public void addCrowd(Crowd p);
+	public List<Crowd> getCrowds();
 	public Crowd getById(int id);
 	public void update(Crowd p);
 	public void delete(Crowd p);

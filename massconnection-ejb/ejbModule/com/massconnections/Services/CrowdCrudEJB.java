@@ -10,19 +10,19 @@ import javax.persistence.PersistenceContext;
 import com.massconnections.Domains.Crowd;
 
 /**
- * Session Bean implementation class UserCrudEJB
+ * Session Bean implementation class CrowdCrudEJB
  */
 @Stateless
-public class UserCrudEJB implements UserCrudEJBRemote, UserCrudEJBLocal {
+public class CrowdCrudEJB implements CrowdCrudEJBRemote, CrowdCrudEJBLocal {
 	@PersistenceContext
     private EntityManager em;
 	
-    public UserCrudEJB() {
+    public CrowdCrudEJB() {
         // TODO Auto-generated constructor stub
     }
 
 	@Override
-	public void addUser(Crowd u) {
+	public void addCrowd(Crowd u) {
 		em.persist(u);
 	}
 
@@ -45,8 +45,8 @@ public class UserCrudEJB implements UserCrudEJBRemote, UserCrudEJBLocal {
 	}
 
 	@Override
-	public List<Crowd> getUsers() {
-		return em.createQuery("select u from User u",Crowd.class).getResultList();
+	public List<Crowd> getCrowds() {
+		return em.createQuery("select u from Crowd u",Crowd.class).getResultList();
 	}
 	
     
