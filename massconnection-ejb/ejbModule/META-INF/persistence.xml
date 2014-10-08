@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="massconnections">
-		<jta-data-source>java:/mysqlDS</jta-data-source>
-		<class>com.massconnections.Domains.User</class>
+	<persistence-unit name="myPU">
+		<jta-data-source>java:/myPI</jta-data-source>
 		<class>com.massconnections.Domains.Challenge</class>
+		<class>com.massconnections.Domains.ChallengeCategory</class>
+		<class>com.massconnections.Domains.Creator</class>
+		<class>com.massconnections.Domains.Donation</class>
+		<class>com.massconnections.Domains.Donator</class>
+		<class>com.massconnections.Domains.Message</class>
+		<class>com.massconnections.Domains.Project</class>
+		<class>com.massconnections.Domains.ProjectCategory</class>
+		<class>com.massconnections.Domains.ProjectDocument</class>
+		<class>com.massconnections.Domains.Solution</class>
+		<class>com.massconnections.Domains.SolutionDocument</class>
+		<class>com.massconnections.Domains.Solver</class>
+		<class>com.massconnections.Domains.Submitter</class>
+		<class>com.massconnections.Domains.User</class>
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="create"/>
 		</properties>
