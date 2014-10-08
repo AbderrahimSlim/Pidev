@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,8 +24,10 @@ public class Challenge implements Serializable{
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	private String title;
+	@Column(nullable=true)
 	private String description;
-	private boolean state;
+	@Column(nullable=true)
+	private int state;
 	@ManyToOne
 	@JoinColumn(name="categoryID")
 	private ChallengeCategory category;
@@ -77,10 +80,10 @@ public class Challenge implements Serializable{
 	public void setCategory(ChallengeCategory category) {
 		this.category = category;
 	}
-	public boolean isState() {
+	public int getState() {
 		return state;
 	}
-	public void setState(boolean state) {
+	public void setState(int state) {
 		this.state = state;
 	}
 	public Crowd getSubmitter() {

@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,9 +28,12 @@ public class Crowd implements Serializable{
 	private int id;
 	private String lastName;
 	private String firstName;
+	@Column(nullable=true)
 	private Date birthDate;
+	@Column(nullable=true)
 	private String adress;
 	private String email;
+	@Column(nullable=true)
 	private String phone;
 	private String login;
 	private String password;
