@@ -24,7 +24,7 @@ public class Challenge implements Serializable{
 	private int id;
 	private String title;
 	private String description;
-	
+	private boolean state;
 	@ManyToOne
 	@JoinColumn(name="categoryID")
 	private ChallengeCategory category;
@@ -76,6 +76,18 @@ public class Challenge implements Serializable{
 	}
 	public void setCategory(ChallengeCategory category) {
 		this.category = category;
+	}
+	public boolean isState() {
+		return state;
+	}
+	public void setState(boolean state) {
+		this.state = state;
+	}
+	public Crowd getSubmitter() {
+		return submitter;
+	}
+	public void setSubmitter(Crowd submitter) {
+		this.submitter = submitter;
 	}
 	
 	

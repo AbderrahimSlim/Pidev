@@ -26,6 +26,7 @@ public class Project implements Serializable{
 	private int id;
 	private String title;
 	private String description;
+	private boolean state;
 	private Date deadLine;
 	private float amount;
 	private Date creationDate;
@@ -108,6 +109,19 @@ public class Project implements Serializable{
 	}
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	
+	public boolean isState() {
+		return state;
+	}
+	public void setState(boolean state) {
+		this.state = state;
+	}
+	public Crowd getCreator() {
+		return creator;
+	}
+	public void setCreator(Crowd creator) {
+		this.creator = creator;
 	}
 	
 	
