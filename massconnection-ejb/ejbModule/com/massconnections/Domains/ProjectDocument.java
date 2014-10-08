@@ -23,7 +23,7 @@ public class ProjectDocument implements Serializable{
 	private File content;
 	
 	@ManyToOne
-	@JoinColumn(name="FK_projectId")
+	@JoinColumn(name="projectId")
 	private Project project;
 	
 	

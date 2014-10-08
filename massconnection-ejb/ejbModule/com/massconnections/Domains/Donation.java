@@ -23,11 +23,11 @@ public class Donation implements Serializable{
 	private Date date;
 	
 	@ManyToOne
-	@JoinColumn(name="FK_donatorId")
-	private User donator;
+	@JoinColumn(name="donatorId")
+	private Crowd donator;
 	
 	@ManyToOne
-	@JoinColumn(name="FK_projectId")
+	@JoinColumn(name="projectId")
 	private Project project;
 	
 	
@@ -49,10 +49,10 @@ public class Donation implements Serializable{
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public User getUser() {
+	public Crowd getUser() {
 		return donator;
 	}
-	public void setUser(User donator) {
+	public void setUser(Crowd donator) {
 		this.donator = donator;
 	}
 	public Project getProject() {

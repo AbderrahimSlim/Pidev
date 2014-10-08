@@ -16,8 +16,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public class User implements Serializable{
+public class Crowd implements Serializable{
 	/**
 	 * 
 	 */
@@ -42,6 +41,22 @@ public class User implements Serializable{
 	private List<Solution> solutions = new ArrayList<Solution>();
 	
 	
+	@OneToMany(mappedBy="donator")
+	private List<Donation> donnations = new ArrayList<Donation>();
+	
+	@OneToMany(mappedBy="creator",cascade=CascadeType.ALL)
+	private List<Project> projects = new ArrayList<Project>();
+
+	
+	@OneToMany(mappedBy="submitter",cascade=CascadeType.ALL)
+	private List<Challenge> challenges = new ArrayList<Challenge>();
+	
+	@OneToMany(mappedBy="reciever",cascade=CascadeType.ALL)
+	private List<Message> inBoxMessages =  new ArrayList<Message>();
+	
+	@OneToMany(mappedBy="sender",cascade=CascadeType.ALL)
+	private List<Message> sendMessages =  new ArrayList<Message>();
+	
 	public List<Solution> getSolutions() {
 		return solutions;
 	}
@@ -49,9 +64,7 @@ public class User implements Serializable{
 		this.solutions = solutions;
 	}
 	
-	@OneToMany(mappedBy="creator",cascade=CascadeType.ALL)
-	private List<Project> projects = new ArrayList<Project>();
-
+	
 	
 	public List<Project> getProjects() {
 		return projects;
@@ -59,9 +72,6 @@ public class User implements Serializable{
 	public void setProjects(List<Project> projects) {
 		this.projects = projects;
 	}
-	
-	@OneToMany(mappedBy="donator")
-	private List<Donation> donnations = new ArrayList<Donation>();
 	
 	
 	public List<Donation> getDonnations() {
@@ -71,8 +81,7 @@ public class User implements Serializable{
 		this.donnations = donnations;
 	}
 	
-	@OneToMany(mappedBy="submitter",cascade=CascadeType.ALL)
-	private List<Challenge> challenges = new ArrayList<Challenge>();
+	
 	
 	public List<Challenge> getChallenges() {
 		return challenges;
@@ -81,11 +90,7 @@ public class User implements Serializable{
 		this.challenges = challenges;
 	}
 	
-	@OneToMany(mappedBy="reciever",cascade=CascadeType.ALL)
-	private List<Message> inBoxMessages =  new ArrayList<Message>();
 	
-	@OneToMany(mappedBy="sender",cascade=CascadeType.ALL)
-	private List<Message> sendMessages =  new ArrayList<Message>();
 	
 	
 	public int getId() {

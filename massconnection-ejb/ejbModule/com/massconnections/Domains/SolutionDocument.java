@@ -17,16 +17,18 @@ public class SolutionDocument implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 4076711165148543992L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	private char type;
 	private File content;
 
 	@ManyToOne
-	@JoinColumn(name = "FK_solutionID")
+	@JoinColumn(name = "solutionID")
 	private Solution solution;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	
 	public int getId() {
 		return id;
 	}

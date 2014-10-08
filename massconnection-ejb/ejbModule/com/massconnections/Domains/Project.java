@@ -31,7 +31,7 @@ public class Project implements Serializable{
 	private Date creationDate;
 	
 	@ManyToOne
-	@JoinColumn(name="FK_categoryId")
+	@JoinColumn(name="categoryId")
 	private ProjectCategory category;
 	
 	
@@ -48,8 +48,8 @@ public class Project implements Serializable{
 	private List<ProjectDocument> projectDocuments = new ArrayList<ProjectDocument>();
 	
 	@ManyToOne
-	@JoinColumn(name="FK_UserId")
-	private User creator;
+	@JoinColumn(name="UserId")
+	private Crowd creator;
 	
 	
 	public int getId() {
@@ -100,10 +100,10 @@ public class Project implements Serializable{
 	public void setProjectDocuments(List<ProjectDocument> projectDocuments) {
 		this.projectDocuments = projectDocuments;
 	}
-	public User getUser() {
+	public Crowd getUser() {
 		return creator;
 	}
-	public void setUser(User creator) {
+	public void setUser(Crowd creator) {
 		this.creator = creator;
 	}
 	public static long getSerialversionuid() {

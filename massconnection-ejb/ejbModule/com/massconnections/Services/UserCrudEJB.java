@@ -7,7 +7,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import com.massconnections.Domains.User;
+import com.massconnections.Domains.Crowd;
 
 /**
  * Session Bean implementation class UserCrudEJB
@@ -22,31 +22,31 @@ public class UserCrudEJB implements UserCrudEJBRemote, UserCrudEJBLocal {
     }
 
 	@Override
-	public void addUser(User u) {
+	public void addUser(Crowd u) {
 		em.persist(u);
 	}
 
 	@Override
-	public User getById(int id) {
-		User u = em.find(User.class, id);
+	public Crowd getById(int id) {
+		Crowd u = em.find(Crowd.class, id);
 		return u;
 	}
 	
 	
 
 	@Override
-	public void update(User u) {
+	public void update(Crowd u) {
 		em.merge(u);
 	}
 
 	@Override
-	public void delete(User u) {
+	public void delete(Crowd u) {
 		 em.remove(em.merge(u));		
 	}
 
 	@Override
-	public List<User> getUsers() {
-		return em.createQuery("select u from User u",User.class).getResultList();
+	public List<Crowd> getUsers() {
+		return em.createQuery("select u from User u",Crowd.class).getResultList();
 	}
 	
     

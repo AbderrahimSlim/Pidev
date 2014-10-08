@@ -28,11 +28,11 @@ public class Solution implements Serializable{
 	private List<SolutionDocument> SolutionDocument = new ArrayList<SolutionDocument>();
 	
 	@ManyToOne
-	@JoinColumn(name="FK_SolverId")
-	private User solver;
+	@JoinColumn(name="SolverId")
+	private Crowd solver;
 	
 	@ManyToOne
-	@JoinColumn(name="FK_challengeId")
+	@JoinColumn(name="challengeId")
 	private Challenge challenge;
 	
 	
@@ -55,10 +55,10 @@ public class Solution implements Serializable{
 	public void setSolutionDocument(List<SolutionDocument> solutionDocument) {
 		SolutionDocument = solutionDocument;
 	}
-	public User getSolver() {
+	public Crowd getSolver() {
 		return solver;
 	}
-	public void setSolver(User solver) {
+	public void setSolver(Crowd solver) {
 		this.solver = solver;
 	}
 	public Challenge getChallenge() {

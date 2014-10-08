@@ -30,12 +30,12 @@ public class Message implements Serializable{
 	private String content;
 	
 	@ManyToOne
-	@JoinColumn(name="FK_senderId")
-	private User sender;
+	@JoinColumn(name="senderId")
+	private Crowd sender;
 	
 	@ManyToOne
-	@JoinColumn(name="FK_recieverId")
-	private User reciever;
+	@JoinColumn(name="recieverId")
+	private Crowd reciever;
 	
 	
 	public int getId() {
@@ -56,16 +56,16 @@ public class Message implements Serializable{
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public User getSender() {
+	public Crowd getSender() {
 		return sender;
 	}
-	public void setSender(User sender) {
+	public void setSender(Crowd sender) {
 		this.sender = sender;
 	}
-	public User getRecever() {
+	public Crowd getRecever() {
 		return reciever;
 	}
-	public void setRecever(User recever) {
+	public void setRecever(Crowd recever) {
 		this.reciever = recever;
 	}
 	public Date getDate() {

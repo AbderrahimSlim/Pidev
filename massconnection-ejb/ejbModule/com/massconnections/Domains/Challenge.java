@@ -26,13 +26,13 @@ public class Challenge implements Serializable{
 	private String description;
 	
 	@ManyToOne
-	@JoinColumn(name="FK_challengeCategId")
+	@JoinColumn(name="categoryID")
 	private ChallengeCategory category;
 	
 	
 	@ManyToOne
-	@JoinColumn(name="FK_UserId")
-	private User submitter;
+	@JoinColumn(name="UserId")
+	private Crowd submitter;
 	
 	@OneToMany(mappedBy="challenge",cascade=CascadeType.ALL)
 	private List<Solution> solutions;
@@ -65,10 +65,10 @@ public class Challenge implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	public User getUser() {
+	public Crowd getUser() {
 		return submitter;
 	}
-	public void setUser(User submitter) {
+	public void setUser(Crowd submitter) {
 		this.submitter = submitter;
 	}
 	public ChallengeCategory getCategory() {
