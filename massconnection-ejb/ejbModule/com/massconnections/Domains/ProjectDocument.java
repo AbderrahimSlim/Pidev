@@ -15,6 +15,9 @@ public class ProjectDocument implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -4044376826532601829L;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	private char type;
 	private File content;
@@ -23,8 +26,7 @@ public class ProjectDocument implements Serializable{
 	@JoinColumn(name="FK_projectId")
 	private Project project;
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	
 	public int getId() {
 		return id;
 	}

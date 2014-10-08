@@ -16,7 +16,8 @@ import javax.persistence.*;
 public class ChallengeCategory implements Serializable {
 
 	   
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	private String name;
 	
@@ -29,8 +30,7 @@ public class ChallengeCategory implements Serializable {
 		super();
 	}   
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	
 	public int getId() {
 		return this.id;
 	}

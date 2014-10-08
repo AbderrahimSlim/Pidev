@@ -15,20 +15,22 @@ public class Donation implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 2434695396229313945L;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	private float amount;
 	private Date date;
 	
 	@ManyToOne
 	@JoinColumn(name="FK_donatorId")
-	private Donator donator;
+	private User donator;
 	
 	@ManyToOne
 	@JoinColumn(name="FK_projectId")
 	private Project project;
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	
 	public int getId() {
 		return id;
 	}
@@ -47,10 +49,10 @@ public class Donation implements Serializable{
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public Donator getDonator() {
+	public User getUser() {
 		return donator;
 	}
-	public void setDonator(Donator donator) {
+	public void setUser(User donator) {
 		this.donator = donator;
 	}
 	public Project getProject() {

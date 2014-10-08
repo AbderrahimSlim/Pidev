@@ -4,17 +4,13 @@
 		<jta-data-source>java:/myPI</jta-data-source>
 		<class>com.massconnections.Domains.Challenge</class>
 		<class>com.massconnections.Domains.ChallengeCategory</class>
-		<class>com.massconnections.Domains.Creator</class>
 		<class>com.massconnections.Domains.Donation</class>
-		<class>com.massconnections.Domains.Donator</class>
 		<class>com.massconnections.Domains.Message</class>
 		<class>com.massconnections.Domains.Project</class>
 		<class>com.massconnections.Domains.ProjectCategory</class>
 		<class>com.massconnections.Domains.ProjectDocument</class>
 		<class>com.massconnections.Domains.Solution</class>
 		<class>com.massconnections.Domains.SolutionDocument</class>
-		<class>com.massconnections.Domains.Solver</class>
-		<class>com.massconnections.Domains.Submitter</class>
 		<class>com.massconnections.Domains.User</class>
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="create"/>

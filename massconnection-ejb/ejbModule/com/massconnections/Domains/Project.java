@@ -20,6 +20,9 @@ public class Project implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 748146505217327813L;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	private String title;
 	private String description;
@@ -45,12 +48,10 @@ public class Project implements Serializable{
 	private List<ProjectDocument> projectDocuments = new ArrayList<ProjectDocument>();
 	
 	@ManyToOne
-	@JoinColumn(name="FK_CreatorId")
-	private Creator creator;
+	@JoinColumn(name="FK_UserId")
+	private User creator;
 	
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	public int getId() {
 		return id;
 	}
@@ -99,10 +100,10 @@ public class Project implements Serializable{
 	public void setProjectDocuments(List<ProjectDocument> projectDocuments) {
 		this.projectDocuments = projectDocuments;
 	}
-	public Creator getCreator() {
+	public User getUser() {
 		return creator;
 	}
-	public void setCreator(Creator creator) {
+	public void setUser(User creator) {
 		this.creator = creator;
 	}
 	public static long getSerialversionuid() {

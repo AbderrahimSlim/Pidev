@@ -18,6 +18,9 @@ public class Solution implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = -3332699487846603330L;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	private String description;
 	
@@ -33,8 +36,7 @@ public class Solution implements Serializable{
 	private Challenge challenge;
 	
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	
 	public int getId() {
 		return id;
 	}

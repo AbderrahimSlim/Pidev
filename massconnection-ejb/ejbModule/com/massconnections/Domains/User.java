@@ -23,6 +23,8 @@ public class User implements Serializable{
 	 */
 	private static final long serialVersionUID = -8785718556261510247L;
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	private String lastName;
 	private String firstName;
@@ -35,14 +37,57 @@ public class User implements Serializable{
 	private Date lastLogin;
 	private String role;
 	
+	
+	@OneToMany(mappedBy="solver",cascade=CascadeType.ALL)
+	private List<Solution> solutions = new ArrayList<Solution>();
+	
+	
+	public List<Solution> getSolutions() {
+		return solutions;
+	}
+	public void setSolutions(List<Solution> solutions) {
+		this.solutions = solutions;
+	}
+	
+	@OneToMany(mappedBy="creator",cascade=CascadeType.ALL)
+	private List<Project> projects = new ArrayList<Project>();
+
+	
+	public List<Project> getProjects() {
+		return projects;
+	}
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
+	}
+	
+	@OneToMany(mappedBy="donator")
+	private List<Donation> donnations = new ArrayList<Donation>();
+	
+	
+	public List<Donation> getDonnations() {
+		return donnations;
+	}
+	public void setDonnations(List<Donation> donnations) {
+		this.donnations = donnations;
+	}
+	
+	@OneToMany(mappedBy="submitter",cascade=CascadeType.ALL)
+	private List<Challenge> challenges = new ArrayList<Challenge>();
+	
+	public List<Challenge> getChallenges() {
+		return challenges;
+	}
+	public void setChallenges(List<Challenge> challenges) {
+		this.challenges = challenges;
+	}
+	
 	@OneToMany(mappedBy="reciever",cascade=CascadeType.ALL)
 	private List<Message> inBoxMessages =  new ArrayList<Message>();
 	
 	@OneToMany(mappedBy="sender",cascade=CascadeType.ALL)
 	private List<Message> sendMessages =  new ArrayList<Message>();
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	
 	public int getId() {
 		return id;
 	}

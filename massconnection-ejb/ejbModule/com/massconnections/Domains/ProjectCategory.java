@@ -22,6 +22,9 @@ public class ProjectCategory implements Serializable {
 	 */
 	private static final long serialVersionUID = 5264591379064090299L;
 	
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	private String name;
 	
@@ -32,8 +35,7 @@ public class ProjectCategory implements Serializable {
 		super();
 	}   
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	
 	public int getId() {
 		return this.id;
 	}

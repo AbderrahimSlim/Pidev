@@ -7,7 +7,6 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import com.massconnections.Domains.Solver;
 import com.massconnections.Domains.User;
 
 /**
@@ -50,11 +49,6 @@ public class UserCrudEJB implements UserCrudEJBRemote, UserCrudEJBLocal {
 		return em.createQuery("select u from User u",User.class).getResultList();
 	}
 	
-	@Override
-	public List<Solver> getSolver() {
-		return em.createQuery("select u from User u where role='solver'",Solver.class).getResultList();
-	}
-    
     
 
 }

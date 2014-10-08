@@ -18,6 +18,9 @@ public class Challenge implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 845955225084562866L;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	private String title;
 	private String description;
@@ -28,14 +31,13 @@ public class Challenge implements Serializable{
 	
 	
 	@ManyToOne
-	@JoinColumn(name="FK_SubmitterId")
-	private Submitter submitter;
+	@JoinColumn(name="FK_UserId")
+	private User submitter;
 	
 	@OneToMany(mappedBy="challenge",cascade=CascadeType.ALL)
 	private List<Solution> solutions;
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	
 	public int getId() {
 		return id;
 	}
@@ -63,10 +65,10 @@ public class Challenge implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	public Submitter getSubmitter() {
+	public User getUser() {
 		return submitter;
 	}
-	public void setSubmitter(Submitter submitter) {
+	public void setUser(User submitter) {
 		this.submitter = submitter;
 	}
 	public ChallengeCategory getCategory() {

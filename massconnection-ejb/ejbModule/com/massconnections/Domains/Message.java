@@ -18,6 +18,9 @@ public class Message implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1113415222023133104L;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	private String subject;
 	private Date date;
@@ -34,8 +37,7 @@ public class Message implements Serializable{
 	@JoinColumn(name="FK_recieverId")
 	private User reciever;
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	
 	public int getId() {
 		return id;
 	}
