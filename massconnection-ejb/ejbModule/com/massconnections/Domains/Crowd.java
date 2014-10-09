@@ -27,6 +27,7 @@ public class Crowd implements Serializable{
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	private String lastName;
+	private char sex;
 	private String firstName;
 	@Column(nullable=true)
 	private Date birthDate;
@@ -175,5 +176,11 @@ public class Crowd implements Serializable{
 	}
 	public void setInBox(List<Message> inBox) {
 		this.inBoxMessages = inBox;
+	}
+	public char getSex() {
+		return sex;
+	}
+	public void setSex(char sex) {
+		this.sex = sex;
 	}
 }
