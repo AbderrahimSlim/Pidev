@@ -1,20 +1,18 @@
 package com.massconnections.Domains;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 
 @Entity
 public class Crowd implements Serializable{
@@ -43,55 +41,56 @@ public class Crowd implements Serializable{
 	
 	
 	@OneToMany(mappedBy="solver",cascade=CascadeType.ALL)
-	private List<Solution> solutions = new ArrayList<Solution>();
+	private Set<Solution> solutions = new HashSet<Solution>();
 	
 	
 	@OneToMany(mappedBy="donator")
-	private List<Donation> donnations = new ArrayList<Donation>();
+	private Set<Donation> donnations = new HashSet<Donation>();
 	
-	@OneToMany(mappedBy="creator",cascade=CascadeType.ALL)
-	private List<Project> projects = new ArrayList<Project>();
+	
+	@OneToMany(fetch= FetchType.EAGER, mappedBy="creator",cascade=CascadeType.ALL)
+	private Set<Project> projects = new HashSet<Project>();
 
 	
-	@OneToMany(mappedBy="submitter",cascade=CascadeType.ALL)
-	private List<Challenge> challenges = new ArrayList<Challenge>();
+	@OneToMany(fetch= FetchType.EAGER, mappedBy="submitter",cascade=CascadeType.ALL)
+	private Set<Challenge> challenges = new HashSet<Challenge>();
 	
 	@OneToMany(mappedBy="reciever",cascade=CascadeType.ALL)
-	private List<Message> inBoxMessages =  new ArrayList<Message>();
+	private Set<Message> inBoxMessages =  new HashSet<Message>();
 	
 	@OneToMany(mappedBy="sender",cascade=CascadeType.ALL)
-	private List<Message> sendMessages =  new ArrayList<Message>();
+	private Set<Message> sendMessages =  new HashSet<Message>();
 	
-	public List<Solution> getSolutions() {
+	public Set<Solution> getSolutions() {
 		return solutions;
 	}
-	public void setSolutions(List<Solution> solutions) {
+	public void setSolutions(Set<Solution> solutions) {
 		this.solutions = solutions;
 	}
 	
 	
 	
-	public List<Project> getProjects() {
+	public Set<Project> getProjects() {
 		return projects;
 	}
-	public void setProjects(List<Project> projects) {
+	public void setProjects(Set<Project> projects) {
 		this.projects = projects;
 	}
 	
 	
-	public List<Donation> getDonnations() {
+	public Set<Donation> getDonnations() {
 		return donnations;
 	}
-	public void setDonnations(List<Donation> donnations) {
+	public void setDonnations(Set<Donation> donnations) {
 		this.donnations = donnations;
 	}
 	
 	
 	
-	public List<Challenge> getChallenges() {
+	public Set<Challenge> getChallenges() {
 		return challenges;
 	}
-	public void setChallenges(List<Challenge> challenges) {
+	public void setChallenges(Set<Challenge> challenges) {
 		this.challenges = challenges;
 	}
 	
@@ -179,10 +178,10 @@ public class Crowd implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	public List<Message> getInBox() {
+	public Set<Message> getInBox() {
 		return inBoxMessages;
 	}
-	public void setInBox(List<Message> inBox) {
+	public void setInBox(Set<Message> inBox) {
 		this.inBoxMessages = inBox;
 	}
 	public char getSex() {
