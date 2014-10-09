@@ -165,7 +165,15 @@ public class Crowd implements Serializable{
 		this.role = role;
 	}
 	
-	
+	public int getAge() {
+        Date dateCourante = new Date();
+        int age;
+        age = dateCourante.getYear() - this.getBirthDate().getYear();
+        if (getBirthDate().after(dateCourante)) {
+            age = age - 1;
+        }
+        return age;
+    }
 
 	
 	public static long getSerialversionuid() {
