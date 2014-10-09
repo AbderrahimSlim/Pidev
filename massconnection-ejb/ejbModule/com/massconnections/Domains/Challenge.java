@@ -27,6 +27,7 @@ public class Challenge implements Serializable{
 	@Column(nullable=true)
 	private String description;
 	@Column(nullable=true)
+	//xcvkg
 	private int state;
 	@ManyToOne
 	@JoinColumn(name="categoryID")
