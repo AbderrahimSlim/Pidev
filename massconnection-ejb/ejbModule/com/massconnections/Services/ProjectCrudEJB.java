@@ -2,7 +2,6 @@ package com.massconnections.Services;
 
 import java.util.List;
 
-import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -33,7 +32,7 @@ public class ProjectCrudEJB implements ProjectCrudEJBRemote, ProjectCrudEJBLocal
 
 	@Override
 	public List<Project> getProjects() {
-		return em.createQuery("select * from Project").getResultList();
+		return em.createQuery("select p from Project p").getResultList();
 	}
 
 	@Override

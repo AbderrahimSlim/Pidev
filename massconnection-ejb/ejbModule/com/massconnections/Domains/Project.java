@@ -3,10 +3,13 @@ package com.massconnections.Domains;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -42,11 +45,11 @@ public class Project implements Serializable{
 	public void setCategory(ProjectCategory category) {
 		this.category = category;
 	}
-	@OneToMany(mappedBy="project",cascade=CascadeType.ALL)
-	private List<Donation> donations = new ArrayList<Donation>();
+	@OneToMany(fetch= FetchType.EAGER,mappedBy="project",cascade=CascadeType.ALL)
+	private Set<Donation> donations = new HashSet<Donation>();
 	
-	@OneToMany(mappedBy="project",cascade=CascadeType.ALL)
-	private List<ProjectDocument> projectDocuments = new ArrayList<ProjectDocument>();
+	@OneToMany(fetch= FetchType.EAGER,mappedBy="project",cascade=CascadeType.ALL)
+	private Set<ProjectDocument> projectDocuments = new HashSet<ProjectDocument>();
 	
 	@ManyToOne
 	@JoinColumn(name="UserId")
@@ -89,16 +92,16 @@ public class Project implements Serializable{
 	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
-	public List<Donation> getDonations() {
+	public Set<Donation> getDonations() {
 		return donations;
 	}
-	public void setDonations(List<Donation> donations) {
+	public void setDonations(Set<Donation> donations) {
 		this.donations = donations;
 	}
-	public List<ProjectDocument> getProjectDocuments() {
+	public Set<ProjectDocument> getProjectDocuments() {
 		return projectDocuments;
 	}
-	public void setProjectDocuments(List<ProjectDocument> projectDocuments) {
+	public void setProjectDocuments(Set<ProjectDocument> projectDocuments) {
 		this.projectDocuments = projectDocuments;
 	}
 	public Crowd getUser() {

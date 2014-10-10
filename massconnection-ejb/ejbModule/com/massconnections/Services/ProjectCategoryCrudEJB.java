@@ -2,7 +2,6 @@ package com.massconnections.Services;
 
 import java.util.List;
 
-import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
