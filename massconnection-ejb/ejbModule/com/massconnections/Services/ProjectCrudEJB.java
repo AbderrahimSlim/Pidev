@@ -49,5 +49,6 @@ public class ProjectCrudEJB implements ProjectCrudEJBRemote, ProjectCrudEJBLocal
 	public void delete(Project p) {
 		em.detach(em.merge(p));
 	}
+	
 
 }
