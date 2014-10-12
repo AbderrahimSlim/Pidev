@@ -48,17 +48,17 @@ public class Crowd implements Serializable{
 	private Set<Donation> donnations = new HashSet<Donation>();
 	
 	
-	@OneToMany(fetch= FetchType.EAGER, mappedBy="creator",cascade=CascadeType.ALL)
+	@OneToMany(fetch= FetchType.EAGER, mappedBy="creator",cascade=CascadeType.REMOVE)
 	private Set<Project> projects = new HashSet<Project>();
 
 	
-	@OneToMany(fetch= FetchType.EAGER, mappedBy="submitter",cascade=CascadeType.ALL)
+	@OneToMany(fetch= FetchType.EAGER, mappedBy="submitter",cascade=CascadeType.REMOVE)
 	private Set<Challenge> challenges = new HashSet<Challenge>();
 	
-	@OneToMany(mappedBy="reciever",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="reciever",cascade=CascadeType.PERSIST)
 	private Set<Message> inBoxMessages =  new HashSet<Message>();
 	
-	@OneToMany(mappedBy="sender",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="sender",cascade=CascadeType.PERSIST)
 	private Set<Message> sendMessages =  new HashSet<Message>();
 	
 	public Set<Solution> getSolutions() {
