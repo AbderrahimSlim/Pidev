@@ -2,7 +2,6 @@ package com.massconnections.Services;
 
 import java.util.List;
 
-import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -50,5 +49,6 @@ public class ProjectCrudEJB implements ProjectCrudEJBRemote, ProjectCrudEJBLocal
 	public void delete(Project p) {
 		em.detach(em.merge(p));
 	}
+	
 
 }

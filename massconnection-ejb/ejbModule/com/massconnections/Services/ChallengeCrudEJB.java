@@ -1,11 +1,14 @@
 package com.massconnections.Services;
 
+import java.util.List;
+
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.massconnections.Domains.Challenge;
+import com.massconnections.Domains.Project;
 
 /**
  * Session Bean implementation class ChallengeCrudEJB
@@ -36,6 +39,11 @@ public class ChallengeCrudEJB implements ChallengeCrudEJBRemote, ChallengeCrudEJ
 	@Override
 	public void delete(Challenge c) {
 		em.remove(em.merge(c));	
+	}
+	
+	@Override
+	public List<Challenge> getChallenges() {
+		return em.createQuery("select p from Challenge p").getResultList();
 	}
 
 }
