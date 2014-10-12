@@ -3,6 +3,7 @@ package com.massconnections.Domains;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,9 +20,9 @@ public class Message implements Serializable{
 	 */
 	private static final long serialVersionUID = 1113415222023133104L;
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
-	private int id;
+	@EmbeddedId
+	private MessagePK messagePk;
+	
 	private String subject;
 	private Date date;
 	public static long getSerialversionuid() {
@@ -30,20 +31,14 @@ public class Message implements Serializable{
 	private String content;
 	
 	@ManyToOne
-	@JoinColumn(name="senderId")
+	@JoinColumn(name="senderId", updatable=false,insertable=false)
 	private Crowd sender;
 	
 	@ManyToOne
-	@JoinColumn(name="recieverId")
+	@JoinColumn(name="recieverId", updatable=false,insertable=false)
 	private Crowd reciever;
 	
 	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public String getSubject() {
 		return subject;
 	}
