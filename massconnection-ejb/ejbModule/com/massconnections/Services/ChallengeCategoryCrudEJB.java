@@ -28,7 +28,6 @@ public class ChallengeCategoryCrudEJB implements ChallengeCategoryCrudEJBRemote,
 	@Override
 	public void addChallengeCategory(ChallengeCategory p) {
 		em.persist(p);
-		
 	}
 
 	@Override

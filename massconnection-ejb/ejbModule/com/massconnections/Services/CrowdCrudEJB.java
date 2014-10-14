@@ -6,6 +6,7 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import com.massconnections.Domains.Crowd;
 
@@ -49,6 +50,30 @@ public class CrowdCrudEJB implements CrowdCrudEJBRemote, CrowdCrudEJBLocal {
 		return em.createQuery("select u from Crowd u",Crowd.class).getResultList();
 	}
 	
+	@Override
+	public Crowd findCrowdByLogin(String login){
+		Query query = em.createQuery("select u from Crowd u where u.login=:l");
+		query.setParameter("l", login);
+		Crowd found = null;
+		try{
+			found = (Crowd) query.getSingleResult();
+		}catch(Exception e){
+		}
+		return found;
+	}
+	
+	@Override
+	public Crowd findCrowdByMail(String email){
+		Query query = em.createQuery("select u from Crowd u where u.email=:e");
+		query.setParameter("e", email);
+		Crowd found = null;
+		try{
+			found = (Crowd) query.getSingleResult();
+		}catch(Exception e){
+			System.out.println("aaa");
+		}
+		return found;
+	}
     
 
 }

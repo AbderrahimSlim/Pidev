@@ -15,4 +15,8 @@ public interface CrowdCrudEJBRemote {
 	public Crowd getById(int id);
 	public void update(Crowd p);
 	public void delete(Crowd p);
+	public Crowd findCrowdByLogin(String login);
+	public Crowd findCrowdByMail(String email);
+	
+	
 }
