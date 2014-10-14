@@ -25,6 +25,8 @@ public class ProjectDocument implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="projectId")
 	private Project project;
+
+	private String name;
 	
 	
 	public int getId() {
@@ -54,6 +56,17 @@ public class ProjectDocument implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	@Override
+	public String toString() {
+		return name + "." + type;
+	}
+	
 	
 	
 }
