@@ -15,6 +15,7 @@ import com.massconnections.Domains.Crowd;
  */
 @Stateless
 public class CrowdCrudEJB implements CrowdCrudEJBRemote, CrowdCrudEJBLocal {
+	
 	@PersistenceContext
     private EntityManager em;
 	
@@ -47,14 +48,14 @@ public class CrowdCrudEJB implements CrowdCrudEJBRemote, CrowdCrudEJBLocal {
 
 	@Override
 	public List<Crowd> getCrowds() {
-		Query query =  em.createQuery("select u from Crowd u where u.role= :r",Crowd.class);
+		Query query =  em.createQuery("select u from Crowd u LEFT JOIN FETCH u.projects LEFT JOIN FETCH u.challenges where u.role = :r ");
 		query.setParameter("r", "C");
 		return query.getResultList();
 	}
 	
 	@Override
 	public Crowd findCrowdByLogin(String login){
-		Query query = em.createQuery("select u from Crowd u where u.login=:l");
+		Query query = em.createQuery("select u from Crowd u where u.login=:l and u.password = :p");
 		query.setParameter("l", login);
 		Crowd found = null;
 		try{

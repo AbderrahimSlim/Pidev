@@ -27,7 +27,7 @@ public class Challenge implements Serializable{
 	@Column(nullable=true)
 	private String description;
 	@Column(nullable=true)
-	//xcvkg
+	
 	private int state;
 	@ManyToOne
 	@JoinColumn(name="categoryID")
@@ -38,7 +38,7 @@ public class Challenge implements Serializable{
 	@JoinColumn(name="UserId")
 	private Crowd submitter;
 	
-	@OneToMany(mappedBy="challenge",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="challenge",cascade=CascadeType.REMOVE)
 	private List<Solution> solutions;
 	
 	

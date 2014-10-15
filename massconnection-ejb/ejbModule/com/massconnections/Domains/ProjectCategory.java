@@ -28,7 +28,7 @@ public class ProjectCategory implements Serializable {
 	private int id;
 	private String name;
 	
-	@OneToMany(mappedBy="category",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="category")
 	private List<Project> projects = new ArrayList<Project>();
 
 	public ProjectCategory() {

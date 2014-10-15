@@ -29,10 +29,10 @@ public class Crowd implements Serializable{
 	private String firstName;
 	@Column(nullable=true)
 	private Date birthDate;
-	@Column(nullable=true)
+	@Column(nullable=true,unique=true)
 	private String adress;
 	private String email;
-	@Column(nullable=true)
+	@Column(nullable=true,unique=true)
 	private String phone;
 	private String login;
 	private String password;
@@ -48,17 +48,17 @@ public class Crowd implements Serializable{
 	private Set<Donation> donnations = new HashSet<Donation>();
 	
 	
-	@OneToMany(fetch= FetchType.EAGER, mappedBy="creator",cascade=CascadeType.REMOVE)
+	@OneToMany(mappedBy="creator",cascade=CascadeType.REMOVE)
 	private Set<Project> projects = new HashSet<Project>();
 
 	
-	@OneToMany(fetch= FetchType.EAGER, mappedBy="submitter",cascade=CascadeType.REMOVE)
+	@OneToMany(mappedBy="submitter",cascade=CascadeType.REMOVE)
 	private Set<Challenge> challenges = new HashSet<Challenge>();
 	
-	@OneToMany(mappedBy="reciever",cascade=CascadeType.PERSIST)
+	@OneToMany(mappedBy="reciever")
 	private Set<Message> inBoxMessages =  new HashSet<Message>();
 	
-	@OneToMany(mappedBy="sender",cascade=CascadeType.PERSIST)
+	@OneToMany(mappedBy="sender")
 	private Set<Message> sendMessages =  new HashSet<Message>();
 	
 	public Set<Solution> getSolutions() {

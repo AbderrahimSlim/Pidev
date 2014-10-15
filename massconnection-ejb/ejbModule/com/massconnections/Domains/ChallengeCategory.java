@@ -21,7 +21,7 @@ public class ChallengeCategory implements Serializable {
 	private int id;
 	private String name;
 	
-	@OneToMany(mappedBy="category",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="category")
 	private List<Challenge> challenges = new ArrayList<Challenge>();
 
 	private static final long serialVersionUID = 1L;

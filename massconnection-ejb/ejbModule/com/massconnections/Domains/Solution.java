@@ -24,7 +24,7 @@ public class Solution implements Serializable{
 	private int id;
 	private String description;
 	
-	@OneToMany(mappedBy="solution",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="solution",cascade=CascadeType.REMOVE)
 	private List<SolutionDocument> SolutionDocument = new ArrayList<SolutionDocument>();
 	
 	@ManyToOne

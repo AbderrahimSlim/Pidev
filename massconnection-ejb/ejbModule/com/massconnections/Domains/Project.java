@@ -45,10 +45,10 @@ public class Project implements Serializable{
 	public void setCategory(ProjectCategory category) {
 		this.category = category;
 	}
-	@OneToMany(fetch= FetchType.EAGER,mappedBy="project",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="project")
 	private Set<Donation> donations = new HashSet<Donation>();
 	
-	@OneToMany(fetch= FetchType.EAGER,mappedBy="project",cascade=CascadeType.ALL)
+	@OneToMany(cascade=CascadeType.REMOVE)
 	private Set<ProjectDocument> projectDocuments = new HashSet<ProjectDocument>();
 	
 	@ManyToOne
