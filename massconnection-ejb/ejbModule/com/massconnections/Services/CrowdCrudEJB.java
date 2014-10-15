@@ -55,7 +55,7 @@ public class CrowdCrudEJB implements CrowdCrudEJBRemote, CrowdCrudEJBLocal {
 	
 	@Override
 	public Crowd findCrowdByLogin(String login){
-		Query query = em.createQuery("select u from Crowd u where u.login=:l and u.password = :p");
+		Query query = em.createQuery("select u from Crowd u where u.login=:l");
 		query.setParameter("l", login);
 		Crowd found = null;
 		try{
