@@ -47,7 +47,9 @@ public class CrowdCrudEJB implements CrowdCrudEJBRemote, CrowdCrudEJBLocal {
 
 	@Override
 	public List<Crowd> getCrowds() {
-		return em.createQuery("select u from Crowd u",Crowd.class).getResultList();
+		Query query =  em.createQuery("select u from Crowd u where u.role= :r",Crowd.class);
+		query.setParameter("r", "C");
+		return query.getResultList();
 	}
 	
 	@Override

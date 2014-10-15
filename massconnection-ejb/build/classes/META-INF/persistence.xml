@@ -14,7 +14,7 @@
 		<class>com.massconnections.Domains.Solution</class>
 		<class>com.massconnections.Domains.SolutionDocument</class>
 		<properties>
-			<property name="hibernate.hbm2ddl.auto" value="update"/>
+			<property name="hibernate.hbm2ddl.auto" value="create"/>
 		</properties>
 	</persistence-unit>
 </persistence>
