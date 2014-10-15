@@ -43,7 +43,7 @@ public class ChallengeCrudEJB implements ChallengeCrudEJBRemote, ChallengeCrudEJ
 	
 	@Override
 	public List<Challenge> getChallenges() {
-		return em.createQuery("select p from Challenge p").getResultList();
+		return em.createQuery("select p from Challenge p JOIN FETCH p.solutions").getResultList();
 	}
 
 }

@@ -32,7 +32,7 @@ public class ProjectCrudEJB implements ProjectCrudEJBRemote, ProjectCrudEJBLocal
 
 	@Override
 	public List<Project> getProjects() {
-		return em.createQuery("select p from Project p").getResultList();
+		return em.createQuery("select p from Project p LEFT JOIN FETCH p.projectDocuments").getResultList();
 	}
 
 	@Override
