@@ -29,10 +29,10 @@ public class Crowd implements Serializable{
 	private String firstName;
 	@Column(nullable=true)
 	private Date birthDate;
-	@Column(nullable=true,unique=true)
+	@Column(nullable=true)
 	private String adress;
 	private String email;
-	@Column(nullable=true,unique=true)
+	@Column(nullable=true)
 	private String phone;
 	private String login;
 	private String password;
