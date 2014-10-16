@@ -78,6 +78,20 @@ public class CrowdCrudEJB implements CrowdCrudEJBRemote, CrowdCrudEJBLocal {
 		}
 		return found;
 	}
+
+	@Override
+	public Crowd Authentification(String login, String password) {
+		Query query = em.createQuery("select u from Crowd u where u.login = :login and u.password= :password ");
+		query.setParameter("login", login);
+		query.setParameter("password", password);
+		
+		Crowd found = null;
+		try{
+			found = (Crowd) query.getSingleResult();
+		}catch(Exception e){
+		}
+		return found;
+	}
     
 
 }
