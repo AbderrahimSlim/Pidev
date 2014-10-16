@@ -34,12 +34,25 @@ public class ProjectCrudEJB implements ProjectCrudEJBRemote, ProjectCrudEJBLocal
 	public List<Project> getProjects() {
 		List<Project> projects = null;
 		try{
-		projects = em.createQuery("select p from Project p LEFT JOIN FETCH p.projectDocuments LEFT JOIN FETCH p.documents ").getResultList();
+		projects = em.createQuery("select p from Project p").getResultList();
 		}catch(Exception e){
 			
 		}
 		return projects;
 	}
+	
+	@Override
+	public List<Project> getProjectsWithDonation() {
+		List<Project> projects = null;
+		try{
+		//projects = em.createQuery("select DISTINCT(p) from Project p JOIN FETCH p.donations").getResultList();
+		}catch(Exception e){
+			
+		}
+		return projects;
+	}
+	
+	
 
 	@Override
 	public Project getById(int id) {
@@ -55,7 +68,6 @@ public class ProjectCrudEJB implements ProjectCrudEJBRemote, ProjectCrudEJBLocal
 	public void delete(Project p) {
 		em.detach(em.merge(p));
 	}
-	
-	
+
 
 }

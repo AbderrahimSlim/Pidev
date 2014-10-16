@@ -14,5 +14,6 @@ public interface ProjectCrudEJBRemote {
 	public void update(Project p);
 	public void delete(Project p);
 	List<Project> getProjects();
+	List<Project> getProjectsWithDonation();
 	
 }
