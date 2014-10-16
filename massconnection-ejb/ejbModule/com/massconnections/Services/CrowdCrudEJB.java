@@ -81,7 +81,7 @@ public class CrowdCrudEJB implements CrowdCrudEJBRemote, CrowdCrudEJBLocal {
 
 	@Override
 	public Crowd Authentification(String login, String password) {
-		Query query = em.createQuery("select u from Crowd u LEFT JOIN FETCH u.inBoxMessages LEFT JOIN FETCH u.sendMessages where u.login = :login and u.password= :password ");
+		Query query = em.createQuery("select u from Crowd u where u.login = :login and u.password= :password ");
 		query.setParameter("login", login);
 		query.setParameter("password", password);
 		
