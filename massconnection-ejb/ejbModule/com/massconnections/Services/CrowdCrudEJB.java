@@ -73,7 +73,7 @@ public class CrowdCrudEJB implements CrowdCrudEJBRemote, CrowdCrudEJBLocal {
 		try{
 			found = (Crowd) query.getSingleResult();
 		}catch(Exception e){
-			System.out.println("aaa");
+			
 		}
 		return found;
 	}
