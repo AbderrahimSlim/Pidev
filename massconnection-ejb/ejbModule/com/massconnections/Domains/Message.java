@@ -22,8 +22,9 @@ public class Message implements Serializable{
 	 */
 	private static final long serialVersionUID = 1113415222023133104L;
 	
-	@EmbeddedId
-	private MessagePK messagePk;
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	private int id;
 	
 	private String subject;
 	private Date date;
@@ -36,11 +37,11 @@ public class Message implements Serializable{
 	private String content;
 	
 	@ManyToOne
-	@JoinColumn(name="senderId", updatable=false,insertable=false)
+	@JoinColumn(name="senderId")
 	private Crowd sender;
 	
 	@ManyToOne
-	@JoinColumn(name="recieverId", updatable=false,insertable=false)
+	@JoinColumn(name="recieverId")
 	private Crowd reciever;
 	private Boolean isNew;
 	

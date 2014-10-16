@@ -7,7 +7,6 @@
 		<class>com.massconnections.Domains.Crowd</class>
 		<class>com.massconnections.Domains.Donation</class>
 		<class>com.massconnections.Domains.Message</class>
-		<class>com.massconnections.Domains.MessagePK</class>
 		<class>com.massconnections.Domains.Project</class>
 		<class>com.massconnections.Domains.ProjectCategory</class>
 		<class>com.massconnections.Domains.ProjectDocument</class>

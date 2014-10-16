@@ -38,6 +38,20 @@ public class MessageCrudEJB implements MessageCrudEJBRemote, MessageCrudEJBLocal
 		em.remove(em.merge(msg));
 	}
 
+	@Override
+	public List<Message> getInboxMessages(Crowd reciever) {
+		Query query =  em.createQuery("select u from Message u  where u.reciever = :r ");
+		query.setParameter("r", reciever);
+		return query.getResultList();
+	}
+
+	@Override
+	public List<Message> getOutboxMessages(Crowd sender) {
+		Query query =  em.createQuery("select u from Message u  where u.sender = :r ");
+		query.setParameter("r", sender);
+		return query.getResultList();
+	}
+
 	
 
 
