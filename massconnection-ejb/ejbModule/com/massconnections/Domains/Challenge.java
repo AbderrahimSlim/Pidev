@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
@@ -24,8 +25,13 @@ public class Challenge implements Serializable{
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	private String title;
-	@Column(nullable=true)
+	
+	
+	
+	@Lob 
+	@Column(name="CONTENT", length=10000, nullable=true)
 	private String description;
+	
 	@Column(nullable=true)
 	
 	private int state;
