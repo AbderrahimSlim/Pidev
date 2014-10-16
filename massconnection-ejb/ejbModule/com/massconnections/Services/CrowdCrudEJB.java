@@ -30,8 +30,9 @@ public class CrowdCrudEJB implements CrowdCrudEJBRemote, CrowdCrudEJBLocal {
 
 	@Override
 	public Crowd getById(int id) {
-		Crowd u = em.find(Crowd.class, id);
-		return u;
+		Query query =  em.createQuery("select u from Crowd u LEFT JOIN FETCH u.inBoxMessages LEFT JOIN FETCH u.sendMessages where u.id = :id ");
+		query.setParameter("id", id);
+		return (Crowd) query.getSingleResult();
 	}
 	
 	
