@@ -53,7 +53,7 @@ public class Project implements Serializable{
 	@OneToMany(mappedBy="project", fetch=FetchType.EAGER)
 	private Set<Donation> donations = new HashSet<Donation>();
 	
-	@OneToMany(cascade=CascadeType.REMOVE)
+	@OneToMany(cascade=CascadeType.REMOVE, fetch=FetchType.EAGER)
 	private Set<ProjectDocument> projectDocuments = new HashSet<ProjectDocument>();
 	
 	@ManyToOne
