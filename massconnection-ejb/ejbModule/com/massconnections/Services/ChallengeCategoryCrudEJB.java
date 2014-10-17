@@ -32,7 +32,7 @@ public class ChallengeCategoryCrudEJB implements ChallengeCategoryCrudEJBRemote,
 
 	@Override
 	public List<ChallengeCategory> getChallengeCategorys() {
-		return em.createQuery("select * from ChallengeCategory").getResultList();
+		return em.createQuery("select cc from ChallengeCategory cc").getResultList();
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class ChallengeCategoryCrudEJB implements ChallengeCategoryCrudEJBRemote,
 
 	@Override
 	public void delete(ChallengeCategory p) {
-		em.detach(em.merge(p));
+		em.remove(em.merge(p));
 	}
 
 }

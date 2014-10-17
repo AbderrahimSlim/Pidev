@@ -32,7 +32,7 @@ public class ProjectCategoryCrudEJB implements ProjectCategoryCrudEJBRemote, Pro
 
 	@Override
 	public List<ProjectCategory> getProjectCategorys() {
-		return em.createQuery("select * from ProjectCategory").getResultList();
+		return em.createQuery("select pc from ProjectCategory pc").getResultList();
 	}
 
 	@Override
@@ -47,7 +47,7 @@ public class ProjectCategoryCrudEJB implements ProjectCategoryCrudEJBRemote, Pro
 
 	@Override
 	public void delete(ProjectCategory p) {
-		em.detach(em.merge(p));
+		em.remove(em.merge(p));
 	}
 
 }
