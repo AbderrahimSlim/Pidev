@@ -39,7 +39,10 @@ public class Crowd implements Serializable{
 	private Date lastLogin;
 	private String role;
 	
-	
+	@Override
+	public String toString() {
+		return lastName +" "+ firstName ;
+	}
 	@OneToMany(mappedBy="solver",cascade=CascadeType.ALL)
 	private Set<Solution> solutions = new HashSet<Solution>();
 	
