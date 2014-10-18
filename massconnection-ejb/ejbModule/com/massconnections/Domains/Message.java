@@ -43,7 +43,7 @@ public class Message implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="recieverId")
 	private Crowd reciever;
-	private Boolean isNew;
+	private int isNew;
 	
 	public String getSubject() {
 		return subject;
@@ -75,10 +75,10 @@ public class Message implements Serializable{
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public Boolean getIsNew() {
+	public int getIsNew() {
 		return isNew;
 	}
-	public void setIsNew(Boolean isNew) {
+	public void setIsNew(int isNew) {
 		this.isNew = isNew;
 	}
 	public Message(String subject, String content, Crowd sender, Crowd reciever) {
@@ -87,7 +87,7 @@ public class Message implements Serializable{
 		this.content = content;
 		this.sender = sender;
 		this.reciever = reciever;
-		this.isNew = false;
+		this.isNew = 0;
 	}
 	public Message() {
 		super();
