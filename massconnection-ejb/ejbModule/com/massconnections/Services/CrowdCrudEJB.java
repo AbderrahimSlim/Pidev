@@ -49,7 +49,7 @@ public class CrowdCrudEJB implements CrowdCrudEJBRemote, CrowdCrudEJBLocal {
 
 	@Override
 	public List<Crowd> getCrowds() {
-		Query query =  em.createQuery("select u from Crowd u LEFT JOIN FETCH u.projects LEFT JOIN FETCH u.challenges where u.role = :r ");
+		Query query =  em.createQuery("select u from Crowd u where u.role = :r ");
 		query.setParameter("r", "C");
 		return query.getResultList();
 	}
