@@ -13,7 +13,7 @@ import com.massconnections.Domains.ProjectDocument;
  * Session Bean implementation class ProjectDocumentCrudEJB
  */
 @Stateless
-public class ProjectDocumentCrudEJB implements ProjectDocumentCrudEJBRemote, ProjectDocumentCrudEJBLocal {
+public class ProjectDocumentCrudEJB implements ProjectDocumentCrudEJBRemote {
 
 	@PersistenceContext
 	EntityManager em;

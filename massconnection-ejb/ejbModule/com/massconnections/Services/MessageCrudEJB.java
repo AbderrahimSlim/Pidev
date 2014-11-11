@@ -17,7 +17,7 @@ import com.massconnections.Domains.Message;
 
 @Stateless
 @LocalBean
-public class MessageCrudEJB implements MessageCrudEJBRemote, MessageCrudEJBLocal {
+public class MessageCrudEJB implements MessageCrudEJBRemote {
 	
 	@PersistenceContext
     private EntityManager em;

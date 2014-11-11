@@ -13,7 +13,7 @@ import com.massconnections.Domains.Solution;
  * Session Bean implementation class SolutionCrudEJB
  */
 @Stateless
-public class SolutionCrudEJB implements SolutionCrudEJBRemote, SolutionCrudEJBLocal {
+public class SolutionCrudEJB implements SolutionCrudEJBRemote {
 
 	@PersistenceContext
 	EntityManager em;

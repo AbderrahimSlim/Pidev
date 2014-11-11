@@ -14,7 +14,7 @@ import com.massconnections.Domains.Project;
  * Session Bean implementation class ChallengeCrudEJB
  */
 @Stateless
-public class ChallengeCrudEJB implements ChallengeCrudEJBRemote, ChallengeCrudEJBLocal {
+public class ChallengeCrudEJB implements ChallengeCrudEJBRemote {
 	@PersistenceContext
 	private EntityManager em;
     /**

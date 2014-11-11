@@ -13,7 +13,7 @@ import com.massconnections.Domains.Donation;
  * Session Bean implementation class DonationCrudEJB
  */
 @Stateless
-public class DonationCrudEJB implements DonationCrudEJBRemote, DonationCrudEJBLocal {
+public class DonationCrudEJB implements DonationCrudEJBRemote {
 
 	@PersistenceContext
 	EntityManager em;

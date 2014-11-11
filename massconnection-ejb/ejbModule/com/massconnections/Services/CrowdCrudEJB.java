@@ -14,7 +14,7 @@ import com.massconnections.Domains.Crowd;
  * Session Bean implementation class CrowdCrudEJB
  */
 @Stateless
-public class CrowdCrudEJB implements CrowdCrudEJBRemote, CrowdCrudEJBLocal {
+public class CrowdCrudEJB implements CrowdCrudEJBRemote {
 	
 	@PersistenceContext
     private EntityManager em;
