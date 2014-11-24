@@ -27,7 +27,7 @@ public class Project implements Serializable{
 	private static final long serialVersionUID = 748146505217327813L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String title;
 	
@@ -50,10 +50,10 @@ public class Project implements Serializable{
 	public void setCategory(ProjectCategory category) {
 		this.category = category;
 	}
-	@OneToMany(mappedBy="project", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="project", cascade=CascadeType.REMOVE)
 	private Set<Donation> donations = new HashSet<Donation>();
 	
-	@OneToMany(cascade=CascadeType.REMOVE, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="project",cascade=CascadeType.REMOVE)
 	private Set<ProjectDocument> projectDocuments = new HashSet<ProjectDocument>();
 	
 	@ManyToOne

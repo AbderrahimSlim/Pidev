@@ -1,6 +1,5 @@
 package com.massconnections.Domains;
 
-import java.io.File;
 
 import java.io.Serializable;
 
@@ -19,10 +18,10 @@ public class SolutionDocument implements Serializable {
 	private static final long serialVersionUID = 4076711165148543992L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private char type;
-	private File content;
+	private String content;
 
 	@ManyToOne
 	@JoinColumn(name = "solutionID")
@@ -45,11 +44,11 @@ public class SolutionDocument implements Serializable {
 		this.type = type;
 	}
 
-	public File getContent() {
+	public String getContent() {
 		return content;
 	}
 
-	public void setContent(File content) {
+	public void setContent(String content) {
 		this.content = content;
 	}
 

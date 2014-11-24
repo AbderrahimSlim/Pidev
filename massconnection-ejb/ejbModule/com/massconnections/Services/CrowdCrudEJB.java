@@ -30,7 +30,7 @@ public class CrowdCrudEJB implements CrowdCrudEJBRemote {
 
 	@Override
 	public Crowd getById(int id) {
-		Query query =  em.createQuery("select u from Crowd u where u.id = :id ");
+		Query query =  em.createQuery("select distinct u from Crowd u join FETCH u.projects p left join fetch u.challenges c left join fetch u.donnations d where u.id = :id ",Crowd.class);
 		query.setParameter("id", id);
 		return (Crowd) query.getSingleResult();
 	}

@@ -1,6 +1,7 @@
 package com.massconnections.Domains;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -22,10 +23,12 @@ public class Challenge implements Serializable{
 	private static final long serialVersionUID = 845955225084562866L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String title;
 	
+	private Date deadLine;
+	private Date startDate;
 	
 	
 	@Lob 
@@ -98,6 +101,18 @@ public class Challenge implements Serializable{
 	}
 	public void setSubmitter(Crowd submitter) {
 		this.submitter = submitter;
+	}
+	public Date getStartDate() {
+		return startDate;
+	}
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+	public Date getDeadLine() {
+		return deadLine;
+	}
+	public void setDeadLine(Date deadLine) {
+		this.deadLine = deadLine;
 	}
 	
 	

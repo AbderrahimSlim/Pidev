@@ -22,7 +22,7 @@ public class Solution implements Serializable{
 	private static final long serialVersionUID = -3332699487846603330L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
 	@Lob 

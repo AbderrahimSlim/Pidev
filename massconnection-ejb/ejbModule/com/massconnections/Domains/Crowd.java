@@ -22,46 +22,47 @@ public class Crowd implements Serializable{
 	private static final long serialVersionUID = -8785718556261510247L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private String lastName;
+	@Column(nullable=false)
 	private char sex;
 	private String firstName;
-	@Column(nullable=true)
 	private Date birthDate;
-	@Column(nullable=true)
 	private String adress;
+	@Column(nullable=false)
 	private String email;
-	@Column(nullable=true)
 	private String phone;
+	@Column(nullable=false)
 	private String login;
+	@Column(nullable=false)
 	private String password;
-	private Date lastLogin;
 	private String role;
+	private String image;
 	
 	@Override
 	public String toString() {
 		return lastName +" "+ firstName ;
 	}
-	@OneToMany(mappedBy="solver",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="solver",cascade=CascadeType.REMOVE)
 	private Set<Solution> solutions = new HashSet<Solution>();
 	
 	
-	@OneToMany(mappedBy="donator")
+	@OneToMany(mappedBy="donator",cascade=CascadeType.REMOVE)
 	private Set<Donation> donnations = new HashSet<Donation>();
 	
 	
-	@OneToMany(mappedBy="creator",cascade=CascadeType.REMOVE, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="creator",cascade=CascadeType.REMOVE)
 	private Set<Project> projects = new HashSet<Project>();
 
 	
-	@OneToMany(mappedBy="submitter",cascade=CascadeType.REMOVE, fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="submitter",cascade=CascadeType.REMOVE)
 	private Set<Challenge> challenges = new HashSet<Challenge>();
 	
-	@OneToMany(mappedBy="reciever")
+	@OneToMany(mappedBy="reciever",cascade=CascadeType.REMOVE)
 	private Set<Message> inBoxMessages =  new HashSet<Message>();
 	
-	@OneToMany(mappedBy="sender")
+	@OneToMany(mappedBy="sender",cascade=CascadeType.REMOVE)
 	private Set<Message> sendMessages =  new HashSet<Message>();
 	
 	public Set<Solution> getSolutions() {
@@ -154,12 +155,7 @@ public class Crowd implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Date getLastLogin() {
-		return lastLogin;
-	}
-	public void setLastLogin(Date lastLogin) {
-		this.lastLogin = lastLogin;
-	}
+	
 	public String getRole() {
 		return role;
 	}
@@ -192,5 +188,11 @@ public class Crowd implements Serializable{
 	}
 	public void setSex(char sex) {
 		this.sex = sex;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 }

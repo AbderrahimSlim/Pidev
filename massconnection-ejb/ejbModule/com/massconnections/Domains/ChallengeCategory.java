@@ -16,11 +16,11 @@ import javax.persistence.*;
 public class ChallengeCategory implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 
-	@OneToMany(mappedBy = "category")
+	@OneToMany(mappedBy = "category",cascade=CascadeType.REMOVE)
 	private List<Challenge> challenges = new ArrayList<Challenge>();
 
 	private static final long serialVersionUID = 1L;

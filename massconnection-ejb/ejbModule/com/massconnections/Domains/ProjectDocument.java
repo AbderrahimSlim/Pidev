@@ -1,6 +1,5 @@
 package com.massconnections.Domains;
 
-import java.io.File;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
@@ -17,10 +16,10 @@ public class ProjectDocument implements Serializable{
 	private static final long serialVersionUID = -4044376826532601829L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private char type;
-	private File content;
+	private String content;
 	
 	@ManyToOne
 	@JoinColumn(name="projectId")
@@ -41,10 +40,10 @@ public class ProjectDocument implements Serializable{
 	public void setType(char type) {
 		this.type = type;
 	}
-	public File getContent() {
+	public String getContent() {
 		return content;
 	}
-	public void setContent(File content) {
+	public void setContent(String content) {
 		this.content = content;
 	}
 	public Project getProject() {

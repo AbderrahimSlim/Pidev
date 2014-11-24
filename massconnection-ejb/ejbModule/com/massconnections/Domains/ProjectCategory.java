@@ -20,11 +20,11 @@ public class ProjectCategory implements Serializable {
 	private static final long serialVersionUID = 5264591379064090299L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 
-	@OneToMany(mappedBy = "category", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy = "category", cascade=CascadeType.REMOVE)
 	private List<Project> projects = new ArrayList<Project>();
 
 	public ProjectCategory() {

@@ -17,7 +17,7 @@ public class Donation implements Serializable{
 	private static final long serialVersionUID = 2434695396229313945L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private float amount;
 	private Date date;

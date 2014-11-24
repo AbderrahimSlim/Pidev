@@ -23,7 +23,7 @@ public class Message implements Serializable{
 	private static final long serialVersionUID = 1113415222023133104L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
 	private String subject;
