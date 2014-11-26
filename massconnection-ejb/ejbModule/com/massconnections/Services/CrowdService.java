@@ -14,12 +14,12 @@ import com.massconnections.Domains.Crowd;
  * Session Bean implementation class CrowdCrudEJB
  */
 @Stateless
-public class CrowdCrudEJB implements CrowdCrudEJBRemote {
+public class CrowdService implements CrowdServiceRemote,CrowdServiceLocal {
 	
 	@PersistenceContext
     private EntityManager em;
 	
-    public CrowdCrudEJB() {
+    public CrowdService() {
         // TODO Auto-generated constructor stub
     }
 

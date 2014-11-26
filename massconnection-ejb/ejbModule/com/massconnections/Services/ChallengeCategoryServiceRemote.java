@@ -7,7 +7,7 @@ import javax.ejb.Remote;
 import com.massconnections.Domains.ChallengeCategory;
 
 @Remote
-public interface ChallengeCategoryCrudEJBRemote {
+public interface ChallengeCategoryServiceRemote {
 	public void addChallengeCategory(ChallengeCategory p);
 	public List<ChallengeCategory> getChallengeCategorys();
 	public ChallengeCategory getById(int id);

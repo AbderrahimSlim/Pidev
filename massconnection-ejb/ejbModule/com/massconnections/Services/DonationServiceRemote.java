@@ -7,7 +7,7 @@ import javax.ejb.Remote;
 import com.massconnections.Domains.Donation;
 
 @Remote
-public interface DonationCrudEJBRemote {
+public interface DonationServiceRemote {
 	
 	public void addDonation(Donation p);
 	public Donation getById(int id);

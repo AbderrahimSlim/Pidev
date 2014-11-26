@@ -7,7 +7,7 @@ import javax.ejb.Remote;
 import com.massconnections.Domains.SolutionDocument;
 
 @Remote
-public interface SolutionDocumentCrudEJBRemote {
+public interface SolutionDocumentServiceRemote {
 	
 	public void addSolutionDocument(SolutionDocument p);
 	public SolutionDocument getById(int id);

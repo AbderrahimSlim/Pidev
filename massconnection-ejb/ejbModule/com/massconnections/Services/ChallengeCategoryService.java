@@ -13,7 +13,7 @@ import com.massconnections.Domains.ChallengeCategory;
  * Session Bean implementation class ChallengeCategoryCrudEJB
  */
 @Stateless
-public class ChallengeCategoryCrudEJB implements ChallengeCategoryCrudEJBRemote {
+public class ChallengeCategoryService implements ChallengeCategoryServiceRemote {
 
 	@PersistenceContext
 	EntityManager em;
@@ -21,7 +21,7 @@ public class ChallengeCategoryCrudEJB implements ChallengeCategoryCrudEJBRemote 
     /**
      * Default constructor. 
      */
-    public ChallengeCategoryCrudEJB() {
+    public ChallengeCategoryService() {
         // TODO Auto-generated constructor stub
     }
 

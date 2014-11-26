@@ -13,7 +13,7 @@ import com.massconnections.Domains.SolutionDocument;
  * Session Bean implementation class SolutionDocumentCrudEJB
  */
 @Stateless
-public class SolutionDocumentCrudEJB implements SolutionDocumentCrudEJBRemote {
+public class SolutionDocumentService implements SolutionDocumentServiceRemote {
 
 	@PersistenceContext
 	EntityManager em;
@@ -21,7 +21,7 @@ public class SolutionDocumentCrudEJB implements SolutionDocumentCrudEJBRemote {
     /**
      * Default constructor. 
      */
-    public SolutionDocumentCrudEJB() {
+    public SolutionDocumentService() {
         // TODO Auto-generated constructor stub
     }
 

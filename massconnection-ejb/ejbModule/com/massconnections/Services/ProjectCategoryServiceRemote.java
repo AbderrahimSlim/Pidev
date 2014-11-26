@@ -9,7 +9,7 @@ import com.massconnections.Domains.ProjectCategory;
 
 
 @Remote
-public interface ProjectCategoryCrudEJBRemote {
+public interface ProjectCategoryServiceRemote {
 
 	public void addProjectCategory(ProjectCategory p);
 	public List<ProjectCategory> getProjectCategorys();

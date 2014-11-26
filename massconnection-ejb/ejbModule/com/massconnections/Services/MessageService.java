@@ -17,14 +17,14 @@ import com.massconnections.Domains.Message;
 
 @Stateless
 @LocalBean
-public class MessageCrudEJB implements MessageCrudEJBRemote {
+public class MessageService implements MessageServiceRemote {
 	
 	@PersistenceContext
     private EntityManager em;
     /**
      * Default constructor. 
      */
-    public MessageCrudEJB() {
+    public MessageService() {
     }
 
 	@Override

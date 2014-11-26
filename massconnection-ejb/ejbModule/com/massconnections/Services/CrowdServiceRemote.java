@@ -8,7 +8,7 @@ import com.massconnections.Domains.Crowd;
 
 
 @Remote
-public interface CrowdCrudEJBRemote {
+public interface CrowdServiceRemote {
 	
 	public void addCrowd(Crowd p);
 	public List<Crowd> getCrowds();

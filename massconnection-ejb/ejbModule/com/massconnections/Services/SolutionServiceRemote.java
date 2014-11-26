@@ -7,7 +7,7 @@ import javax.ejb.Remote;
 import com.massconnections.Domains.Solution;
 
 @Remote
-public interface SolutionCrudEJBRemote {
+public interface SolutionServiceRemote {
 	
 	public void addSolution(Solution p);
 	public List<Solution> getSolutions();

@@ -12,7 +12,7 @@ import com.massconnections.Domains.Project;
  * Session Bean implementation class ProjectCrudEJB
  */
 @Stateless
-public class ProjectCrudEJB implements ProjectCrudEJBRemote {
+public class ProjectService implements ProjectServiceRemote {
 
 	@PersistenceContext
 	EntityManager em;
@@ -20,7 +20,7 @@ public class ProjectCrudEJB implements ProjectCrudEJBRemote {
     /**
      * Default constructor. 
      */
-    public ProjectCrudEJB() {
+    public ProjectService() {
         // TODO Auto-generated constructor stub
     }
 

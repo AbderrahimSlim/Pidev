@@ -7,7 +7,7 @@ import javax.ejb.Remote;
 import com.massconnections.Domains.Project;
 
 @Remote
-public interface ProjectCrudEJBRemote {
+public interface ProjectServiceRemote {
 	
 	public void addProject(Project p);
 	public Project getById(int id);

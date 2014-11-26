@@ -14,13 +14,13 @@ import com.massconnections.Domains.Project;
  * Session Bean implementation class ChallengeCrudEJB
  */
 @Stateless
-public class ChallengeCrudEJB implements ChallengeCrudEJBRemote {
+public class ChallengeService implements ChallengeServiceRemote,ChallengeServiceLocal {
 	@PersistenceContext
 	private EntityManager em;
     /**
      * Default constructor. 
      */
-    public ChallengeCrudEJB() {
+    public ChallengeService() {
         // TODO Auto-generated constructor stub
     }
 	@Override
@@ -43,7 +43,7 @@ public class ChallengeCrudEJB implements ChallengeCrudEJBRemote {
 	
 	@Override
 	public List<Challenge> getChallenges() {
-		return em.createQuery("select p from Challenge p JOIN FETCH p.solutions").getResultList();
+		return em.createQuery("select p from Challenge p",Challenge.class).getResultList();
 	}
 
 }

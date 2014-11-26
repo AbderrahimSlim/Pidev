@@ -7,7 +7,7 @@ import javax.ejb.Remote;
 import com.massconnections.Domains.Challenge;
 
 @Remote
-public interface ChallengeCrudEJBRemote {
+public interface ChallengeServiceRemote {
 
 	public void addChallenge(Challenge c);
 	public Challenge getById(int id);
