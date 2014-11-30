@@ -14,4 +14,6 @@ public interface MessageServiceRemote {
 	public List<Message> getInboxMessages(Crowd reciever);
 	public List<Message> getOutboxMessages(Crowd sender);
 	public void delete (Message msg);
+	public List<Message> getMessagesByCrowd(Crowd current,String other);
+	public List<Message> getLastMessages(Crowd current);
 }

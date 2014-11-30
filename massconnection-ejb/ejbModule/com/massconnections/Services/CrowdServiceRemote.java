@@ -17,6 +17,6 @@ public interface CrowdServiceRemote {
 	public void delete(Crowd p);
 	public Crowd findCrowdByLogin(String login);
 	public Crowd findCrowdByMail(String email);
-	public Crowd Authentification (String login,String password);
+	public Crowd Authentification (String login,String password,String role);
 	
 }

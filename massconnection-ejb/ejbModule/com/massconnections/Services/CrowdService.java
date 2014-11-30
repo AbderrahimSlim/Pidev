@@ -80,11 +80,11 @@ public class CrowdService implements CrowdServiceRemote,CrowdServiceLocal {
 	}
 
 	@Override
-	public Crowd Authentification(String login, String password) {
+	public Crowd Authentification(String login, String password,String role) {
 		Query query = em.createQuery("select u from Crowd u where u.login = :login and u.password= :password and u.role= :role ");
 		query.setParameter("login", login);
 		query.setParameter("password", password);
-		query.setParameter("role", "A");
+		query.setParameter("role", role);
 		
 		Crowd found = null;
 		try{

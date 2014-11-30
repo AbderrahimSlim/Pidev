@@ -26,7 +26,7 @@ public class Solution implements Serializable{
 	private int id;
 	
 	@Lob 
-	@Column(name="CONTENT", length=10000)
+	@Column(name="description", length=10000)
 	private String description;
 	
 	@OneToMany(mappedBy="solution",cascade=CascadeType.REMOVE)

@@ -21,7 +21,7 @@ public class SolutionDocument implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private char type;
-	private String content;
+	private String url;
 
 	@ManyToOne
 	@JoinColumn(name = "solutionID")
@@ -44,12 +44,13 @@ public class SolutionDocument implements Serializable {
 		this.type = type;
 	}
 
-	public String getContent() {
-		return content;
+	
+	public String getUrl() {
+		return url;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	public Solution getSolution() {
