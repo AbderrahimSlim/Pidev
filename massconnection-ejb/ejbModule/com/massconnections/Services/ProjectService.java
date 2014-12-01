@@ -34,7 +34,7 @@ public class ProjectService implements ProjectServiceRemote,ProjectServiceLocal 
 	public List<Project> getProjects() {
 		List<Project> projects = null;
 		try{
-		projects = em.createQuery("select DISTINCT(p) from Project p LEFT JOIN FETCH p.donations LEFT JOIN FETCH p.projectDocuments").getResultList();
+		projects = em.createQuery("select DISTINCT(p) from Project p LEFT JOIN FETCH p.donations LEFT JOIN FETCH p.projectDocuments where p.state = 1").getResultList();
 		}catch(Exception e){
 			
 		}

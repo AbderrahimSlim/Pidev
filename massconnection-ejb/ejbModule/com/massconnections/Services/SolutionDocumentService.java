@@ -13,7 +13,7 @@ import com.massconnections.Domains.SolutionDocument;
  * Session Bean implementation class SolutionDocumentCrudEJB
  */
 @Stateless
-public class SolutionDocumentService implements SolutionDocumentServiceRemote {
+public class SolutionDocumentService implements SolutionDocumentServiceRemote,SolutionDocumentServiceLocal {
 
 	@PersistenceContext
 	EntityManager em;
