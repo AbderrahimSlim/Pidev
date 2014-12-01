@@ -12,7 +12,7 @@ import com.massconnections.Domains.Project;
  * Session Bean implementation class ProjectCrudEJB
  */
 @Stateless
-public class ProjectService implements ProjectServiceRemote {
+public class ProjectService implements ProjectServiceRemote,ProjectServiceLocal {
 
 	@PersistenceContext
 	EntityManager em;
@@ -34,7 +34,7 @@ public class ProjectService implements ProjectServiceRemote {
 	public List<Project> getProjects() {
 		List<Project> projects = null;
 		try{
-		projects = em.createQuery("select p from Project p").getResultList();
+		projects = em.createQuery("select DISTINCT(p) from Project p LEFT JOIN FETCH p.donations LEFT JOIN FETCH p.projectDocuments").getResultList();
 		}catch(Exception e){
 			
 		}
@@ -45,7 +45,7 @@ public class ProjectService implements ProjectServiceRemote {
 	public List<Project> getProjectsWithDonation() {
 		List<Project> projects = null;
 		try{
-		//projects = em.createQuery("select DISTINCT(p) from Project p JOIN FETCH p.donations").getResultList();
+		projects = em.createQuery("select DISTINCT(p) from Project p LEFT JOIN FETCH p.donations LEFT JOIN FETCH p.projectDocuments").getResultList();
 		}catch(Exception e){
 			
 		}

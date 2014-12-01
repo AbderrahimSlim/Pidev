@@ -12,7 +12,7 @@ import com.massconnections.Domains.ProjectCategory;
  * Session Bean implementation class ProjectCategoryCrudEJB
  */
 @Stateless
-public class ProjectCategoryService implements ProjectCategoryServiceRemote {
+public class ProjectCategoryService implements ProjectCategoryServiceRemote,ProjectCategoryServiceLocal {
 
 	@PersistenceContext
 	EntityManager em;

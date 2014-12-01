@@ -6,6 +6,7 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import com.massconnections.Domains.Challenge;
 import com.massconnections.Domains.Project;
@@ -14,6 +15,7 @@ import com.massconnections.Domains.Project;
  * Session Bean implementation class ChallengeCrudEJB
  */
 @Stateless
+@LocalBean
 public class ChallengeService implements ChallengeServiceRemote,ChallengeServiceLocal {
 	@PersistenceContext
 	private EntityManager em;
@@ -29,9 +31,17 @@ public class ChallengeService implements ChallengeServiceRemote,ChallengeService
 	}
 	@Override
 	public Challenge getById(int id) {
-		Challenge c = em.find(Challenge.class, id);
+		Challenge c = null;
+		try {
+			c = em.createQuery(
+					"select DISTINCT(p) from Challenge p LEFT JOIN FETCH p.solutions where p.id = :id",
+					Challenge.class).setParameter("id", id).getSingleResult();
+		} catch (Exception e) {
+
+		}
 		return c;
 	}
+	
 	@Override
 	public void update(Challenge c) {
 		em.merge(c);
@@ -45,5 +55,5 @@ public class ChallengeService implements ChallengeServiceRemote,ChallengeService
 	public List<Challenge> getChallenges() {
 		return em.createQuery("select p from Challenge p",Challenge.class).getResultList();
 	}
-
+	
 }
