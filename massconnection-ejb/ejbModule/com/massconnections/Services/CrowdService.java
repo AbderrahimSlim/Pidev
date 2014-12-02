@@ -94,5 +94,17 @@ public class CrowdService implements CrowdServiceRemote,CrowdServiceLocal {
 		return found;
 	}
     
+	@Override
+	public List<Crowd> getSolvers() {
+		List<Crowd> solvers = null;
+		try {
+			solvers = em
+					.createQuery(
+							"select DISTINCT(p) from Crowd p JOIN p.solutions c where p.id=c.solver.id",
+							Crowd.class).getResultList();
+		} catch (Exception e) {
 
+		}
+		return solvers;
+	}//"select DISTINCT(p) from Crowd p LEFT JOIN FETCH p.solutions",
 }

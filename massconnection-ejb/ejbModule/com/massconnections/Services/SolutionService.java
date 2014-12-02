@@ -7,28 +7,29 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import com.massconnections.Domains.Challenge;
 import com.massconnections.Domains.Solution;
 
 /**
  * Session Bean implementation class SolutionCrudEJB
  */
 @Stateless
-public class SolutionService implements SolutionServiceRemote,SolutionServiceLocal {
+public class SolutionService implements SolutionServiceRemote,
+		SolutionServiceLocal {
 
 	@PersistenceContext
 	EntityManager em;
-	
-    /**
-     * Default constructor. 
-     */
-    public SolutionService() {
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * Default constructor.
+	 */
+	public SolutionService() {
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public void addSolution(Solution p) {
 		em.persist(p);
-		
 	}
 
 	@Override
@@ -38,7 +39,11 @@ public class SolutionService implements SolutionServiceRemote,SolutionServiceLoc
 
 	@Override
 	public Solution getById(int id) {
-		return em.find(Solution.class, id);
+		// return em.find(Solution.class, id);
+		Solution s = null;
+		s = em.createQuery("select p from Solution p where p.id = :id",
+				Solution.class).setParameter("id", id).getSingleResult();
+		return s;
 	}
 
 	@Override

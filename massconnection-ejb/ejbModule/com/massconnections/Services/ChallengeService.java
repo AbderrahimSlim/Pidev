@@ -32,13 +32,11 @@ public class ChallengeService implements ChallengeServiceRemote,
 	@Override
 	public Challenge getById(int id) {
 		Challenge c = null;
-		try {
+	
 			c = em.createQuery(
 					"select p from Challenge p LEFT JOIN FETCH p.solutions where p.id = :id",
 					Challenge.class).setParameter("id", id).getSingleResult();
-		} catch (Exception e) {
 
-		}
 		return c;
 	}
 

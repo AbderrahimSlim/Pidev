@@ -18,5 +18,6 @@ public interface CrowdServiceRemote {
 	public Crowd findCrowdByLogin(String login);
 	public Crowd findCrowdByMail(String email);
 	public Crowd Authentification (String login,String password,String role);
+	public List<Crowd> getSolvers();
 	
 }
